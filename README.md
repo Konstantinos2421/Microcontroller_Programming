@@ -20,9 +20,9 @@ The apps that are implemented with ATMega4808 are the following ones:
   - ADC0: Analog-to-Digital-Converter that measures the distance of the device from obstacles
 
 - **fan_movement_control.c:** The purpose of this app is to simulate the motion of a fan. A fan consists of two rotary motions, a circular motion of the blades and a circular motion of the base, so that the fan can rotate and cover more space. These two circular motions will be simulated at two different rates, determined by two different Pulse-Width Modulators(PWMs). The rate of each movement will be displayed on an LED, which will be turned on when the pulse is at the rising edge and turned off when the rising edge of the next pulse follows. When the switch is activated, the fan is activated. The base cycling is activated, simulated by a pulse period Tb = 2 ms and a duty cycle Db = 60%. This pulse drives the PORTD LED1 through the rising edges. The blade cycling is activated, which is simulated by a pulse period Tl = 1ms and duty cycle Dl = 50%. This pulse drives the PORTD LED0 through the rising edges. When the same switch is activated a second time after the fan has started to run, the period of the blade cycling pulse is doubled with a duty cycle Tl = 50%. The base cycling pulse continues to operate as described above. If the switch is pressed a third time, the fan is switched off and both pulses stop operating. The ports of ATMega4808 which are used are the following ones:
-  - PORTD0:
-  - PORTD1:
-  - PORTF5:
-  - TCA0: 
+  - PORTD0: Fan blades motion LED
+  - PORTD1: Fan base motion LED
+  - PORTF5: Switch for fan activation/deactivation
+  - TCA0: Timer that is used as PWM in split mode
 
 - **smart_greenhouse_simulation.c:**
