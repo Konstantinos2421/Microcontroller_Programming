@@ -25,4 +25,11 @@ The apps that are implemented with ATMega4808 are the following ones:
   - PORTF5: Switch for fan activation/deactivation
   - TCA0: Timer that is used as PWM in split mode
 
-- **smart_greenhouse_simulation.c:**
+- **smart_greenhouse_simulation.c:** The purpose of this app is to simulate a control system for a greenhouse. First, the ADC is activated, which continuously accepts values and checks them according to two predefined humidity thresholds. If the values are lower than the threshold set, then the PORTD LED0 is activated, signalling that the greenhouse plants need to be watered. If the values are higher than the maximum threshold set, then PORTD LED1 is activated, signalling that the humidity has exceeded the desired levels and must be lowered by means of a ventilation system (automatic doors, windows or a fan system activated by a motor to refresh the air in the greenhouse). Depending on the LED that has been activated (LED0 or LED1) and through the two switches (switches 5 and 6 of the PORTF), the user can select the next action to be performed by the greenhouse system. By activating switch SW5 of the PORTF, the watering system is activated. By activating PORTF switch SW6, the ventilation system is activated. The ports of ATMega4808 which are used are the following ones:
+  -  PORTD0: Low humidity LED
+  -  PORTD1: High humidity LED
+  -  PORTD2: Ventilation system LED
+  -  PORTF5: Switch for watering system activation
+  -  PORTF6: Switch for ventilation system activation
+  -  TCA0: Used as timer and PWM
+  -  ADC0: Humidity sensor
